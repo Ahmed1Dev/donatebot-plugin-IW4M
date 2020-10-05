@@ -11,7 +11,7 @@ This plugin requires the following IW4M version and above: Version 2.3 Prereleas
 To install, download the `donate.js` plugin from releases and place in inside the Plugins directory in the root IW4M directory. Read the below documentation for configuration of the plugin.
 
 ## Documentation
-[Click here to read the documentation and setup for this plugin.](https://developers.donatebot.io/plugin-iw4m-admin)
+[Click here to read the documentation and setup for this plugin.](https://developers.donatebot.io/plugins/plugin-iw4m-admin)
 
 ## Issues
 If any issues arrise, please open an issue on GitHub.
