@@ -86,12 +86,12 @@ let commands = [{
         var clientId = gameEvent.Target.ClientId;
         if (status === "1" || status === "True" || status === "true") {
             plugin.applyNewDonation(clientId);
-            gameEvent.Origin.Tell(`Set donator status of ${gameEvent.Target.Name} to true.`);
+            gameEvent.Origin.Tell(`>>>  ✅ **Status ${gameEvent.Target.Name} Changed To \`True\`.**`);
         } else if (status === "0" || status === "False" || status === "false") {
             plugin.removeDonationReward(clientId);
-            gameEvent.Origin.Tell(`Set donator status of ${gameEvent.Target.Name} to false.`);
+            gameEvent.Origin.Tell(`>>> ✅ **Status ${gameEvent.Target.Name} Changed To \`False\`.`);
         } else {
-            gameEvent.Origin.tell("Status must be either true or false.")
+            gameEvent.Origin.tell(">>> :X: **if you want opend choose \`true\`, if you want closed choose \`false\`** ")
         }
     }
 }];
@@ -269,6 +269,7 @@ let plugin = {
         var donations = [];
 
         try {
+        
             var cl = new System.Net.Http.HttpClient();
             cl.DefaultRequestHeaders.Add("Authorization", config.apiKey);
             cl.DefaultRequestHeaders.Add("User-Agent", "Donate-Bot-IW4M-Plugin/" + this.version.toFixed(1));
@@ -304,12 +305,11 @@ let plugin = {
                     this.markAsProcessed(donation.txn_id, false);
                 }
             }
-
+        
         } catch (e) {
             this.logger.WriteWarning('There was a problem fetching donations ' + e.message);
         }
-
-    }
+    },
 
     onEventAsync: function (gameEvent, server) {
         // Check if specified time has passed in the config
